@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -9,7 +10,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta charset="UTF-8">
 	<title></title>
 	<link rel="stylesheet" href="http://lib.sinaapp.com/js/bootstrap/latest/css/bootstrap.min.css" />
-	<script type="text/javascript" src="http://lib.sinaapp.com/js/jquery/1.7.2/jquery.min.js"></script>
+	<script type="text/javascript" src="http://lib.sinaapp.com/js/jquery/1.8/jquery.min.js"></script>
 	<script type="text/javascript" src="http://lib.sinaapp.com/js/bootstrap/latest/js/bootstrap.min.js"></script>
 	<script type="text/javascript">
 		$(function(){
@@ -46,8 +47,12 @@ alert("time out")
 		</div>
 		<div class="row">
 			<div class="span6 offset3">
-				<a  class="btn btn-large" href="/AccessToken">还没有授权哦，这就去找渣浪111</a>
+				<c:if test="${!weibo}">
+				<a  class="btn btn-large" href="/AccessToken">还没有授权哦，这就去找渣浪</a>
+				</c:if>
+				<c:if test="${weibo}">
 				<a  class="btn btn-large" id="stop" href="#">已经授权，但是我不想用了</a>
+				</c:if>
 			</div>
 				
 		</div>

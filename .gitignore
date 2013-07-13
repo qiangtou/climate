@@ -3,5 +3,6 @@
 .settings
 .classpath
 */target/*
+*/bin/*
 *.swp
 
