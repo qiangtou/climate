@@ -9,8 +9,13 @@
   <name>climate task</name>
   <dependencies>
   	<dependency>
-  		<groupId>com.qiangtou.climate</groupId>
+  		<groupId>${project.groupId}</groupId>
   		<artifactId>climate-weather</artifactId>
+  		<version>${project.version}</version>
+  	</dependency>
+  	<dependency>
+  		<groupId>${project.groupId}</groupId>
+  		<artifactId>climate-weibo</artifactId>
   		<version>${project.version}</version>
   	</dependency>
   </dependencies>

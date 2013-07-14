@@ -9,8 +9,6 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.util.EntityUtils;
 
-import com.qiangtou.climate.helper.Log;
-
 public class Weather {
 	
 	private static String weather="";
@@ -29,7 +27,6 @@ public class Weather {
 			int len = in.read(b);
 			weather = new String(b, 0, len, "utf-8");
 			weather=parserWeather(weather);
-			Log.log(weather);
 			Weather.weather=weather;
 			EntityUtils.consume(entity1);
 		} catch (Exception e) {
@@ -53,7 +50,6 @@ public class Weather {
 		String _weather=get(weather,"weather");
 		String ptime=get(weather,"ptime");
 		weather=city+"天气:"+_weather+","+temp1+"~"+temp2+"。发布时间:今天"+ptime+".(数据来自中国天气网)";
-		Log.log(weather);
 		return weather;
 	}
 

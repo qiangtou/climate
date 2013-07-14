@@ -14,6 +14,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<script type="text/javascript" src="http://lib.sinaapp.com/js/bootstrap/latest/js/bootstrap.min.js"></script>
 	<script type="text/javascript">
 		$(function(){
+		$('#auth')[0].href=("https://api.weibo.com/oauth2/authorize?client_id=2831263130&redirect_uri=http://climate.sinaapp.com&response_type=code&state=")
 		var m= $('#m').on('hidden', function () {
    				location.href="http://"+location.host;
     });
@@ -48,7 +49,7 @@ alert("time out")
 		<div class="row">
 			<div class="span6 offset3">
 				<c:if test="${!weibo}">
-				<a  class="btn btn-large" href="/AccessToken">还没有授权哦，这就去找渣浪</a>
+				<a  class="btn btn-large" id="auth" href="#">还没有授权哦，这就去找渣浪</a>
 				</c:if>
 				<c:if test="${weibo}">
 				<a  class="btn btn-large" id="stop" href="#">已经授权，但是我不想用了</a>

@@ -18,9 +18,5 @@
 		  <groupId>org.apache.httpcomponents</groupId>
 		  <artifactId>httpclient</artifactId>
 	  </dependency>
-	  <dependency>
-		  <groupId>com.qiangtou.climate</groupId>
-		  <artifactId>climate-helper</artifactId>
-	  </dependency>
   </dependencies>
 </project>
