@@ -10,7 +10,7 @@
 	<packaging>war</packaging>
 	<name>climate web</name>
 	<build>
-		<finalName>climate</finalName>
+		<finalName>sztq</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.mortbay.jetty</groupId>

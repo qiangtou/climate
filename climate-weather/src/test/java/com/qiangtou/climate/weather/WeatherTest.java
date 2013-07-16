@@ -9,7 +9,7 @@ public class WeatherTest{
 	public void testFetchWeather() {
 		Weather.fetchWeather();
 		String weahter=Weather.getWeather();
-		String msg="test fetchweather:"+weahter;
-		Assert.assertEquals(msg, true, weahter.length()>0);
+		Assert.assertEquals("test fetchweather:", true, weahter.length()>0);
+		Assert.assertEquals("test getWeather", weahter, Weather.getWeather());
 	}
 }

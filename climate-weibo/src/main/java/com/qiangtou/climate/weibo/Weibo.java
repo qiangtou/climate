@@ -11,16 +11,12 @@ import com.qiangtou.climate.helper.Log;
 public class Weibo {
 	public static String ACCESS_TOKEN = "";
 
-	public static void send(String weather) {
+	public static void send(String weather) throws WeiboException {
 		if (isAvaliable()) {
 			Log.log("正在发微博");
 			Timeline tm = new Timeline();
 			tm.client.setToken(ACCESS_TOKEN);
-			try {
 				tm.UpdateStatus(weather);
-			} catch (WeiboException e) {
-				e.printStackTrace();
-			}
 		}else{
 			Log.log("ACCESS_TOKEN is null");
 		}

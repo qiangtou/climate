@@ -32,7 +32,7 @@ public class Weather {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			g.releaseConnection();
+			g.abort();
 		}
 	}
 	
@@ -49,7 +49,7 @@ public class Weather {
 		String temp2=get(weather,"temp2");
 		String _weather=get(weather,"weather");
 		String ptime=get(weather,"ptime");
-		weather=city+"天气:"+_weather+","+temp1+"~"+temp2+"。发布时间:今天"+ptime+".(数据来自中国天气网)";
+		weather=city+":"+_weather+","+temp1+"~"+temp2+".发布时间:"+ptime+".";
 		return weather;
 	}
 

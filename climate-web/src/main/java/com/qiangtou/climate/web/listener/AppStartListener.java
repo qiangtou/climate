@@ -14,11 +14,10 @@ public class AppStartListener implements ServletContextListener {
 	}
 
 	public void contextInitialized(ServletContextEvent arg0) {
-		Log.log("-------------定时器启动----------");
+		Log.log("-------------定时器startSend启动----------");
 		App a=new App();
-		a.startWeather();
 		a.startSend();
-		Log.log("-------------定时器启动完成-----------");
+		Log.log("-------------定时器startSend启动完成-----------");
 	}
 
 }

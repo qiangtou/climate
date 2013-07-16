@@ -26,6 +26,16 @@
 		<servlet-name>AccessToken</servlet-name>
 		<servlet-class>com.qiangtou.climate.web.servlet.AccessToken</servlet-class>
 	</servlet>
+  <servlet>
+    <servlet-name>FetchWeather</servlet-name>
+    <servlet-class>com.qiangtou.climate.web.servlet.FetchWeather</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>SendWeibo</servlet-name>
+    <servlet-class>com.qiangtou.climate.web.servlet.SendWeibo</servlet-class>
+  </servlet>
+
+
 
 	<servlet-mapping>
 		<servlet-name>AccessToken</servlet-name>
@@ -35,6 +45,14 @@
 		<servlet-name>StopToken</servlet-name>
 		<url-pattern>/StopToken</url-pattern>
 	</servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>FetchWeather</servlet-name>
+    <url-pattern>/FetchWeather</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>SendWeibo</servlet-name>
+    <url-pattern>/SendWeibo</url-pattern>
+  </servlet-mapping>
 
 	<welcome-file-list>
 		<welcome-file>admin.jsp</welcome-file>

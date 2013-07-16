@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@ page language="java" import="java.util.*,com.qiangtou.climate.task.App" pageEncoding="utf-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
 String path = request.getContextPath();
@@ -12,27 +12,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<link rel="stylesheet" href="http://lib.sinaapp.com/js/bootstrap/latest/css/bootstrap.min.css" />
 	<script type="text/javascript" src="http://lib.sinaapp.com/js/jquery/1.8/jquery.min.js"></script>
 	<script type="text/javascript" src="http://lib.sinaapp.com/js/bootstrap/latest/js/bootstrap.min.js"></script>
-	<script type="text/javascript">
-		$(function(){
-		$('#auth')[0].href=("https://api.weibo.com/oauth2/authorize?client_id=2831263130&redirect_uri=http://climate.sinaapp.com&response_type=code&state=")
-		var m= $('#m').on('hidden', function () {
-   				location.href="http://"+location.host;
-    });
-			$("#stop").click(function(){
-				$.ajax({
-					url:"/StopToken",type:'post',
-					success:function(res){
-					if(res=='ok'){ 
-						m.modal('show');
-					}
-					},
-error:function(){
-alert("time out")	
-}
-					});
-			});
-		})
-	</script>
+	<script type="text/javascript" src="/static/main.js"></script>
 </head>
 <body>
 	<div class="container">
@@ -43,19 +23,53 @@ alert("time out")
 				<p>
 				<a class="btn btn-primary btn-large" href="http://qiangtou.github.io"/> 我的github博客 </a>
 				</p>
+				<p>
+				<%=App.log %>
+				</p>
+				<p>
+				${weather}
+				</p>
+				<c:if test="${weibo}">
+				<div class="row">
+					<div class="span4 ">
+						<input id="content"  class="input-xlarge search-query" placeholder="写一点东西吧…"/>
+					</div>
+					<div class="span3">
+						<a class="btn btn-medium" id="send" href="#">试着发一下微博</a>
+					</div>
+				</div>
+				</c:if>
+			
+				
+				
 			</div>
 
 		</div>
-		<div class="row">
-			<div class="span6 offset3">
-				<c:if test="${!weibo}">
-				<a  class="btn btn-large" id="auth" href="#">还没有授权哦，这就去找渣浪</a>
-				</c:if>
-				<c:if test="${weibo}">
-				<a  class="btn btn-large" id="stop" href="#">已经授权，但是我不想用了</a>
-				</c:if>
-			</div>
-				
+			<c:if test="${!weibo}">
+				<div class="row">
+					<div class="span3 offset1">
+						<a class="btn btn-large" id="weather" href="#">试着拉一下天气</a>
+					</div>
+					<div class="span5 offset1">
+						<a class="btn btn-large" id="auth" href="#">还没有授权哦，这就去找渣浪</a>
+					</div>
+				</div>
+			</c:if>
+
+
+			<c:if test="${weibo}">
+				<div class="row">
+					<div class="span3 offset1">
+						<a class="btn btn-large" id="weather" href="#">试着拉一下天气</a>
+					</div>
+
+
+					<div class="span4 offset1">
+						<a class="btn btn-large" id="stop" href="#">已经授权，但是我不想用了</a>
+					</div>
+				</div>
+
+			</c:if>
 		</div>
 	</div>
 	<!--模态提示框  -->
@@ -65,7 +79,7 @@ alert("time out")
     <h3>提示信息</h3>
     </div>
     <div class="modal-body">
-    <p>说的是捏，您的授权已经解除，放心去玩吧，微博不会再自己发了！！</p>
+    <p></p>
     </div>
     <div class="modal-footer">
     <a href="#m" class="btn" data-toggle="modal" >关闭</a>

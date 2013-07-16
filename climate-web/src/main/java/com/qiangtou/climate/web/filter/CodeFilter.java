@@ -9,6 +9,7 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 
+import com.qiangtou.climate.weather.Weather;
 import com.qiangtou.climate.weibo.Weibo;
 import weibo4j.Oauth;
 import weibo4j.model.WeiboException;
@@ -28,6 +29,7 @@ public class CodeFilter implements Filter {
 			}
 		}
 		req.setAttribute("weibo",weibo) ;
+		req.setAttribute("weather",Weather.getWeather()) ;
 		chain.doFilter(req, res);
 	}
 
