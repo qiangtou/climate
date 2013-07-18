@@ -13,7 +13,7 @@ public class Weibo {
 
 	public static void send(String weather) throws WeiboException {
 		if (isAvaliable()) {
-			Log.log("正在发微博");
+			Log.log("正在发微博："+weather);
 			Timeline tm = new Timeline();
 			tm.client.setToken(ACCESS_TOKEN);
 				tm.UpdateStatus(weather);

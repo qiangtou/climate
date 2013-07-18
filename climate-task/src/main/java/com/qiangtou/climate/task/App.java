@@ -61,7 +61,7 @@ public class App {
 			h=8;
 			d++;
 		}
-		c.set(c.get(Calendar.YEAR), c.get(Calendar.MONTH), d,h,0,30);
+		c.set(c.get(Calendar.YEAR), c.get(Calendar.MONTH), d,h,30,30);
 		return c.getTime();
 	}
 	public static void main(String[] args) {
