@@ -21,22 +21,22 @@ public class SendWeibo extends HttpServlet {
 		response.setContentType("text/html;charset:utf-8");
 		PrintWriter out = response.getWriter();
 		
-		String content,res="ok";
-		content=request.getParameter("content").trim();
-		if(content.length()>0){
-			content+=".";
+		String content,attach,res="ok";
+		content=request.getParameter("content");
+		attach=request.getParameter("attach");
+		if(content!=null && content.length()>0){
+			String weather=Weather.getWeather();
+			try {
+				Weibo.send(content+(("true".equals(attach)&&weather.length()>0)?("----"+weather):""));
+			} catch (WeiboException e) {
+				res="fail";
+			}
 		}else{
-			content="";
+			res="null";
 		}
-		String weather=Weather.getWeather();
-		try {
-			Weibo.send(content+weather+".--来自火星!!");
-		} catch (WeiboException e) {
-			res="fail";
-		}
+		
 		out.print(res);
 		out.flush();
 		out.close();
 	}
-
 }

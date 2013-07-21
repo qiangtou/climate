@@ -34,8 +34,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<div class="span4 ">
 						<input id="content"  class="input-xlarge search-query" placeholder="写一点东西吧…"/>
 					</div>
-					<div class="span3">
+					<div class="span4">
 						<a class="btn btn-medium" id="send" href="#">试着发一下微博</a>
+						<input id="attach" type="checkbox" value="true" />附加天气信息
 					</div>
 				</div>
 				</c:if>

@@ -9,12 +9,16 @@ $(function () {
 			url : "/SendWeibo",
 			type : 'post',
 			data : {
-				content : $('#content').val()
+				content : $('#content').val()||'',
+				attach:$('#attach:checked').val()||false
 			},
 			success : function (res) {
+				res=$.trim(res);
 				if (res == "ok") {
 					tip.html("发送成功！！");
-				} else {
+				}else if(res == "null") {
+					tip.html("微博内容不能为空！！");
+				}else {
 					tip.html("发送失败！！");
 				}
 				m.modal('show');
