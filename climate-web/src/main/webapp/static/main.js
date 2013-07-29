@@ -1,5 +1,5 @@
 $(function () {
-	$('#auth').attr('href', "https://api.weibo.com/oauth2/authorize?client_id=2831263130&redirect_uri=http://sztq.sinaapp.com&response_type=code&state=")
+	$('#auth').attr('href', "https://api.weibo.com/oauth2/authorize?client_id=2831263130&redirect_uri=http://climate.sturgeon.mopaas.com&response_type=code&state=")
 	var m = $('#m').on('hidden', function () {
 			location.href = "http://" + location.host;
 		});

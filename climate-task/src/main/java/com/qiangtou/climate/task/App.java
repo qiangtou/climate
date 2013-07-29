@@ -33,10 +33,15 @@ public class App {
 		
 		Timer t = new Timer();
 		long period = sMin>0?sMin:24*HOURS;
-		t.scheduleAtFixedRate(new WeiboTask(),d1, period);
-		t.scheduleAtFixedRate(new WeiboTask(),d2, period);
-		t.scheduleAtFixedRate(new WeiboTask(),d3, period);
-		log="\n发送周期是"+period/HOURS+"小时,<br/>1:"+d1+",\n2:"+d2+",\n3:"+d3;
+		
+		Date d=d1;
+		if(d2.getHours()==8)d=d2;
+		if(d3.getHours()==8)d=d3;
+		t.scheduleAtFixedRate(new WeiboTask(),d, period);
+		//t.scheduleAtFixedRate(new WeiboTask(),d2, period);
+		//t.scheduleAtFixedRate(new WeiboTask(),d3, period);
+		
+		log="\n发送周期是"+period/HOURS+"小时,<br/>1:"+d;
 		Log.log(log);
 	}
 	
