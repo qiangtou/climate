@@ -9,9 +9,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <head>
 	<meta charset="UTF-8">
 	<title></title>
-	<link rel="stylesheet" href="http://lib.sinaapp.com/js/bootstrap/latest/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="http://lib.sinaapp.com/js/bootstrap/2.3.2/css/bootstrap.min.css" />
 	<script type="text/javascript" src="http://lib.sinaapp.com/js/jquery/1.8/jquery.min.js"></script>
-	<script type="text/javascript" src="http://lib.sinaapp.com/js/bootstrap/latest/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="http://lib.sinaapp.com/js/bootstrap/2.3.2/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="/static/main.js"></script>
 </head>
 <body>
